@@ -1,0 +1,56 @@
+{
+  "name": "organization-chart-vue3",
+  "version": "1.0.1",
+  "description": "A vue3 component to display organization chart",
+  "author": "LeeJams [woals214@gmail.com]",
+  "type": "module",
+  "main": "./dist/organization-chart-vue3.umd.cjs",
+  "module": "./dist/organization-chart-vue3.js",
+  "exports": {
+    ".": {
+      "import": "./dist/organization-chart-vue3.js",
+      "require": "./dist/organization-chart-vue3.umd.cjs"
+    },
+    "./dist/style.css": {
+      "import": "./dist/style.css",
+      "require": "./dist/style.css"
+    }
+  },
+  "types": "./dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LeeJams/Organization-Chart-Vue3"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "vue",
+    "vue3",
+    "vue3 component",
+    "vue3 organization chart",
+    "vue3 organization",
+    "vue3 chart",
+    "vue3 org",
+    "organization",
+    "chart",
+    "org",
+    "organization chart",
+    "vue3 org chart",
+    "vue3 org"
+  ],
+  "license": "MIT",
+  "homepage": "https://leejams.github.io/Organization-Chart-Vue3/",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "build-bundle": "vite build && vue --emitDeclarationOnly"
+  },
+  "dependencies": {
+    "vue": "^3.3.4"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.2.3",
+    "vite": "^4.4.5"
+  }
+}
