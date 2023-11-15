@@ -1,27 +1,27 @@
 <template>
-  <table v-if="orgData.title">
+  <table v-if="orgData.title" class="org-table">
     <tr>
       <td
         :colspan="
           Array.isArray(orgData.children) ? orgData.children.length * 2 : 1
         "
         :class="{
-          parentLevel: isChildren(),
-          extend: isChildren() && orgData.extend,
+          ['org-parent-level']: isChildren(),
+          ['org-extend']: isChildren() && orgData.extend,
         }"
       >
-        <div class="node">
-          <div class="container" @click="$emit('click-node', orgData)">
-            <div class="title" :class="orgData.titleClass || []">
+        <div class="org-node">
+          <div class="org-container" @click="$emit('click-node', orgData)">
+            <div class="org-title" :class="orgData.titleClass || []">
               {{ orgData.title }}
             </div>
             <div
-              class="content"
+              class="org-content"
               v-if="isMember()"
               :class="orgData.contentClass || []"
             >
               <div
-                class="content-item"
+                class="org-content-item"
                 v-for="(member, index) in orgData.member"
                 @click.stop="$emit('click-node', member)"
               >
@@ -37,7 +37,7 @@
           </div>
         </div>
         <div
-          class="extend_arrow"
+          class="org-extend-arrow"
           v-if="isChildren()"
           @click="setToggleExtend(orgData, !orgData.extend)"
         ></div>
@@ -51,7 +51,7 @@
         v-for="(children, index) in orgData.children"
         :key="index"
         colspan="2"
-        class="childLevel"
+        class="org-child-level"
       >
         <OrganizationChart
           :data="children"

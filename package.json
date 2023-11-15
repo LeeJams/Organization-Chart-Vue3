@@ -1,6 +1,6 @@
 {
   "name": "organization-chart-vue3",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A vue3 component to display organization chart",
   "author": "LeeJams [woals214@gmail.com]",
   "type": "module",

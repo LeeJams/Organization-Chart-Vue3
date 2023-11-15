@@ -1,6 +1,7 @@
-### [DEMO](https://leejams.github.io/Organization-Chart-Vue3/)
-
 # Organization-Chart-Vue3
+
+[DEMO](https://leejams.github.io/Organization-Chart-Vue3/) |
+[![NPM](https://img.shields.io/npm/v/organization-chart-vue3.svg)](https://www.npmjs.com/package/organization-chart-vue3)
 
 > A Vue3 component to display organization chart
 
@@ -59,10 +60,10 @@ If click on the member, you can get the data of the member.
 Component data to support those field：
 
 ```text
-- title[String] to display a oraganization title
-- member[String] to display a oraganization member
+- title[String] to display a organization title
+- member[String] to display a organization member
   - name[String] to display a organization member name
-  - add[String] to display a organization member additonal info
+  - add[String] to display a organization member additional info
   - image_url[String] to display a organization member image
 - children[Array] to display a organization children
 - titleClass[String, Array<String>] to input organization title class

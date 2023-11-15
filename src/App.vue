@@ -8,7 +8,7 @@
       <a
         href="https://github.com/LeeJams/Organization-Chart-Vue3"
         target="_blank"
-        >Vue-Tree-Chart</a
+        >Organization-Chart-Vue3</a
       >
     </p>
   </footer>
@@ -160,11 +160,11 @@ body {
   bottom: 0;
   left: 0;
   width: 100%;
-  background: #333;
+  background: #42b883;
   padding: 24px;
   overflow: hidden;
-  color: #999;
   font-size: 14px;
+  font-weight: 600;
   text-align: center;
   z-index: 999;
 }
