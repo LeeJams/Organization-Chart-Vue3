@@ -1,13 +1,15 @@
 {
   "name": "organization-chart-vue3",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "A vue3 component to display organization chart",
   "author": "LeeJams [woals214@gmail.com]",
   "type": "module",
   "main": "./dist/organization-chart-vue3.umd.cjs",
   "module": "./dist/organization-chart-vue3.js",
+  "types": "./dist/organization-chart-vue3.d.ts",
   "exports": {
     ".": {
+      "types": "./dist/organization-chart-vue3.d.ts",
       "import": "./dist/organization-chart-vue3.js",
       "require": "./dist/organization-chart-vue3.umd.cjs"
     },
@@ -16,7 +18,6 @@
       "require": "./dist/style.css"
     }
   },
-  "types": "./dist/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/LeeJams/Organization-Chart-Vue3"
@@ -44,9 +45,11 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "build-bundle": "vite build && vue --emitDeclarationOnly"
+    "build-types": "tsc --emitDeclarationOnly",
+    "build-bundle": "npm run build-types && vite build"
   },
   "dependencies": {
+    "typescript": "^5.7.2",
     "vue": "^3.3.4"
   },
   "devDependencies": {

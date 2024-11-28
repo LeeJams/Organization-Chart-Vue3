@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "declaration": true, // .d.ts 파일 생성
+    "emitDeclarationOnly": true, // .js 파일 생성 방지
+    "outDir": "./dist", // 출력 디렉토리
+    "jsx": "react", // JSX 지원
+    "moduleResolution": "node", // Node.js 모듈 해석 방식
+    "target": "ESNext", // 최신 ES 표준 사용
+    "module": "ESNext", // ES 모듈 사용
+    "strict": true // 엄격한 타입 검사
+  },
+  "include": ["src/**/*.d.ts"] // 타입 선언 파일 포함
+}
