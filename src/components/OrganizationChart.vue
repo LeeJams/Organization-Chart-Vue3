@@ -1,64 +1,66 @@
 <template>
   <table v-if="orgData.title" class="org-table">
-    <tr>
-      <td
-        :colspan="
-          Array.isArray(orgData.children) ? orgData.children.length * 2 : 1
-        "
-        :class="{
-          ['org-parent-level']: isChildren(),
-          ['org-extend']: isChildren() && orgData.extend,
-        }"
-      >
-        <div class="org-node">
-          <div class="org-container" @click="$emit('click-node', orgData)">
-            <div class="org-title" :class="orgData.titleClass || []">
-              {{ orgData.title }}
-            </div>
-            <div
-              class="org-content"
-              v-if="isMember()"
-              :class="orgData.contentClass || []"
-            >
+    <tbody>
+      <tr>
+        <td
+          :colspan="
+            Array.isArray(orgData.children) ? orgData.children.length * 2 : 1
+          "
+          :class="{
+            ['org-parent-level']: isChildren(),
+            ['org-extend']: isChildren() && orgData.extend,
+          }"
+        >
+          <div class="org-node">
+            <div class="org-container" @click="$emit('click-node', orgData)">
+              <div class="org-title" :class="orgData.titleClass || []">
+                {{ orgData.title }}
+              </div>
               <div
-                class="org-content-item"
-                v-for="(member, index) in orgData.member"
-                @click.stop="$emit('click-node', member)"
+                class="org-content"
+                v-if="isMember()"
+                :class="orgData.contentClass || []"
               >
-                <div class="item-box">
-                  <p class="item-title">{{ member.name }}</p>
-                  <p class="item-add">{{ member.add }}</p>
-                </div>
-                <div class="avat" v-if="member.image_url">
-                  <img :src="member.image_url" />
+                <div
+                  class="org-content-item"
+                  v-for="(member, index) in orgData.member"
+                  @click.stop="$emit('click-node', member)"
+                >
+                  <div class="item-box">
+                    <p class="item-title">{{ member.name }}</p>
+                    <p class="item-add">{{ member.add }}</p>
+                  </div>
+                  <div class="avat" v-if="member.image_url">
+                    <img :src="member.image_url" />
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <div
-          class="org-extend-arrow"
-          v-if="isChildren()"
-          @click="setToggleExtend(orgData, !orgData.extend)"
-        ></div>
-      </td>
-    </tr>
-    <tr
-      v-if="isChildren()"
-      :style="{ visibility: orgData.extend ? 'visible' : 'hidden' }"
-    >
-      <td
-        v-for="(children, index) in orgData.children"
-        :key="index"
-        colspan="2"
-        class="org-child-level"
+          <div
+            class="org-extend-arrow"
+            v-if="isChildren()"
+            @click="setToggleExtend(orgData, !orgData.extend)"
+          ></div>
+        </td>
+      </tr>
+      <tr
+        v-if="isChildren()"
+        :style="{ visibility: orgData.extend ? 'visible' : 'hidden' }"
       >
-        <OrganizationChart
-          :data="children"
-          @click-node="$emit('click-node', $event)"
-        />
-      </td>
-    </tr>
+        <td
+          v-for="(children, index) in orgData.children"
+          :key="index"
+          colspan="2"
+          class="org-child-level"
+        >
+          <OrganizationChart
+            :data="children"
+            @click-node="$emit('click-node', $event)"
+          />
+        </td>
+      </tr>
+    </tbody>
   </table>
 </template>
 

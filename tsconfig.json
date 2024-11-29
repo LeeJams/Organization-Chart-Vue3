@@ -1,13 +1,32 @@
 {
   "compilerOptions": {
-    "declaration": true, // .d.ts 파일 생성
-    "emitDeclarationOnly": true, // .js 파일 생성 방지
-    "outDir": "./dist", // 출력 디렉토리
-    "jsx": "react", // JSX 지원
-    "moduleResolution": "node", // Node.js 모듈 해석 방식
-    "target": "ESNext", // 최신 ES 표준 사용
+    "target": "ESNext", // 최신 ECMAScript 기능 사용
     "module": "ESNext", // ES 모듈 사용
-    "strict": true // 엄격한 타입 검사
+    "strict": true, // 엄격한 타입 검사
+    "jsx": "preserve", // JSX 유지 (Vue JSX 사용 가능)
+    "esModuleInterop": true, // CommonJS 모듈과의 호환성
+    "skipLibCheck": true, // 라이브러리 타입 검사 건너뛰기
+    "moduleResolution": "node", // Node.js 모듈 해석
+    "resolveJsonModule": true, // JSON 모듈 해석 지원
+    "allowSyntheticDefaultImports": true, // default import 호환성
+    "isolatedModules": true, // 각 파일을 개별 모듈로 처리
+    "declaration": true, // 타입 선언 파일 생성
+    "emitDeclarationOnly": true, // 타입 선언 파일만 출력
+    "outDir": "./dist", // 출력 디렉토리 설정
+    "baseUrl": ".", // 기본 경로 설정
+    "paths": {
+      "@/*": ["src/*"] // 경로 별칭 설정
+    },
+    "lib": ["ESNext", "DOM"] // ECMAScript와 DOM 라이브러리 사용
   },
-  "include": ["src/**/*.d.ts"] // 타입 선언 파일 포함
+  "include": [
+    "src/**/*.ts", // TypeScript 파일 포함
+    "src/**/*.d.ts", // 타입 선언 파일 포함
+    "src/**/*.tsx", // TSX 파일 포함 (Vue JSX 지원)
+    "src/**/*.vue" // Vue 파일 포함
+  ],
+  "exclude": [
+    "node_modules", // node_modules 제외
+    "dist" // dist 폴더 제외
+  ]
 }
