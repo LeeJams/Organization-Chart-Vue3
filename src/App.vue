@@ -41,33 +41,39 @@ export default {
         ],
         children: [
           {
-            id: "management",
-            title: "MANAGEMENT",
+            id: "product",
+            title: "PRODUCT",
+            titleClass: "product-title",
+            contentClass: "product-content",
             member: [
               {
-                id: "jake",
-                name: "Jake",
-                add: "Junior Staff",
-                image_url:
-                  "https://github.com/LeeJams/LeeJams.github.io/blob/master/assets/img/user.jpg?raw=true",
-              },
-              {
-                name: "Noah",
-                add: "Senior Staff",
-                image_url:
-                  "https://github.com/LeeJams/LeeJams.github.io/blob/master/assets/img/user.jpg?raw=true",
-              },
-              {
-                name: "James",
-                add: "Senior Manager",
+                id: "mia",
+                name: "Mia",
+                add: "Product Lead",
                 image_url:
                   "https://github.com/LeeJams/LeeJams.github.io/blob/master/assets/img/user.jpg?raw=true",
               },
             ],
+            children: [
+              {
+                id: "design",
+                title: "DESIGN",
+                titleClass: "design-title",
+                contentClass: "design-content",
+                member: [
+                  {
+                    name: "Ava",
+                    add: "Brand Designer",
+                  },
+                ],
+              },
+            ],
           },
           {
-            id: "development",
-            title: "DEVELOPMENT",
+            id: "engineering",
+            title: "ENGINEERING",
+            titleClass: "engineering-title",
+            contentClass: "engineering-content",
             member: [
               {
                 id: "emma",
@@ -86,15 +92,11 @@ export default {
                 member: [
                   {
                     name: "David",
-                    add: "Senior Staff",
-                  },
-                  {
-                    name: "Ava",
-                    add: "Senior Staff",
+                    add: "Lead Engineer",
                   },
                   {
                     name: "Sophia",
-                    add: "Senior Staff",
+                    add: "UI Engineer",
                   },
                 ],
               },
@@ -106,45 +108,37 @@ export default {
                 member: [
                   {
                     name: "Kyle",
-                    add: "Senior Staff",
+                    add: "Lead Engineer",
                   },
                   {
-                    name: "Richard",
-                    add: "Senior Staff",
-                  },
-                  {
-                    name: "Daniel",
-                    add: "Senior Staff",
+                    name: "Lucas",
+                    add: "Platform Engineer",
                   },
                 ],
               },
             ],
           },
           {
-            id: "design",
-            title: "DESIGN",
+            id: "operations",
+            title: "OPERATIONS",
+            titleClass: "operations-title",
+            contentClass: "operations-content",
             member: [
               {
-                name: "Jacob",
-                add: "Senior Staff",
+                name: "Noah",
+                add: "Operations Manager",
               },
             ],
           },
           {
-            id: "marketing",
-            title: "MARKETING",
-          },
-          {
-            id: "sales",
-            title: "SALES",
-            children: [
+            id: "growth",
+            title: "GROWTH",
+            titleClass: "growth-title",
+            contentClass: "growth-content",
+            member: [
               {
-                id: "sales-a",
-                title: "SALES A TEAM",
-              },
-              {
-                id: "sales-b",
-                title: "SALES B TEAM",
+                name: "Zoe",
+                add: "Marketing Lead",
               },
             ],
           },
@@ -193,17 +187,59 @@ body {
   margin: 0 0.5em;
 }
 .backend-title {
-  background-color: #66abd3;
+  background-color: #5d8fe8;
   color: #fff;
 }
 .backend-content {
-  text-align: center;
+  text-align: left;
+  background: #f5f8ff;
 }
 .frontend-title {
-  background-color: #333;
+  background-color: #283044;
   color: #fff;
 }
 .frontend-content {
   text-align: center;
+  background: #f5f7fb;
+}
+.product-title {
+  background-color: #ff8a5b;
+  color: #fff;
+}
+.product-content {
+  text-align: center;
+  background: #fff4ef;
+}
+.design-title {
+  background-color: #ffb347;
+  color: #fff;
+}
+.design-content {
+  text-align: center;
+  background: #fff8ea;
+}
+.engineering-title {
+  background-color: #4f6bed;
+  color: #fff;
+}
+.engineering-content {
+  text-align: center;
+  background: #eef2ff;
+}
+.operations-title {
+  background-color: #3dbb7a;
+  color: #fff;
+}
+.operations-content {
+  text-align: center;
+  background: #eefcf4;
+}
+.growth-title {
+  background-color: #d95dd7;
+  color: #fff;
+}
+.growth-content {
+  text-align: right;
+  background: #fff0ff;
 }
 </style>

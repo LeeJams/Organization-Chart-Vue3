@@ -8,7 +8,7 @@
 
 Try it here:
 
-[https://leejams.github.io/Organization-Chart-Vue3/](https://leejams.github.io/Organization-Chart-Vue3/)
+[Organization-Chart-Vue3 DEMO](https://leejams.github.io/Organization-Chart-Vue3/)
 
 <img src="./src/assets/logo.png" style="width: 400px" />
 
