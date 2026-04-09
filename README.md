@@ -1,9 +1,14 @@
 # Organization-Chart-Vue3
 
-[DEMO](https://leejams.github.io/Organization-Chart-Vue3/) |
 [![NPM](https://img.shields.io/npm/v/organization-chart-vue3.svg)](https://www.npmjs.com/package/organization-chart-vue3)
 
 > A Vue3 component to display organization chart
+
+## Live Demo
+
+Try it here:
+
+[https://leejams.github.io/Organization-Chart-Vue3/](https://leejams.github.io/Organization-Chart-Vue3/)
 
 <img src="./src/assets/logo.png" style="width: 400px" />
 
