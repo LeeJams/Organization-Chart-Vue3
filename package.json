@@ -1,17 +1,22 @@
 {
   "name": "organization-chart-vue3",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "description": "A vue3 component to display organization chart",
   "author": "LeeJams [woals214@gmail.com]",
   "type": "module",
   "main": "./dist/organization-chart-vue3.umd.cjs",
   "module": "./dist/organization-chart-vue3.js",
-  "types": "./dist/organization-chart-vue3.d.ts",
+  "types": "./dist/index.d.ts",
+  "style": "./dist/style.css",
   "exports": {
     ".": {
-      "types": "./dist/organization-chart-vue3.d.ts",
+      "types": "./dist/index.d.ts",
       "import": "./dist/organization-chart-vue3.js",
       "require": "./dist/organization-chart-vue3.umd.cjs"
+    },
+    "./style.css": {
+      "import": "./dist/style.css",
+      "require": "./dist/style.css"
     },
     "./dist/style.css": {
       "import": "./dist/style.css",
@@ -44,16 +49,24 @@
   "homepage": "https://leejams.github.io/Organization-Chart-Vue3/",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
-    "build-types": "tsc --emitDeclarationOnly",
-    "build-bundle": "npm run build-types && vite build"
+    "clean": "rm -rf dist",
+    "build": "npm run clean && npm run build-types && vite build --mode lib",
+    "build-demo": "vite build --mode demo",
+    "build-types": "vue-tsc -p tsconfig.build.json",
+    "check:pack": "npm pack --dry-run",
+    "test": "vitest run"
   },
-  "dependencies": {
-    "typescript": "^5.7.2",
-    "vue": "^3.3.4"
+  "peerDependencies": {
+    "vue": ">=3.3.4 <4"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^4.2.3",
-    "vite": "^4.4.5"
+    "@vitejs/plugin-vue": "^6.0.5",
+    "@vue/test-utils": "^2.4.6",
+    "jsdom": "^29.0.2",
+    "typescript": "^6.0.2",
+    "vite": "^8.0.8",
+    "vitest": "^4.1.4",
+    "vue": "^3.5.32",
+    "vue-tsc": "^3.2.6"
   }
 }

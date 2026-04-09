@@ -1,5 +1,9 @@
 <template>
-  <OrganizationChart :data="orgData" @click-node="clickNode" />
+  <OrganizationChart
+    :data="orgData"
+    @click-node="clickNode"
+    @select="handleSelect"
+  />
   <footer class="foot">
     <p>
       Blog
@@ -25,9 +29,11 @@ export default {
   data() {
     return {
       orgData: {
+        id: "company",
         title: "CEO",
         member: [
           {
+            id: "oliver",
             name: "Oliver",
             image_url:
               "https://github.com/LeeJams/LeeJams.github.io/blob/master/assets/img/user.jpg?raw=true",
@@ -35,9 +41,11 @@ export default {
         ],
         children: [
           {
+            id: "management",
             title: "MANAGEMENT",
             member: [
               {
+                id: "jake",
                 name: "Jake",
                 add: "Junior Staff",
                 image_url:
@@ -58,9 +66,11 @@ export default {
             ],
           },
           {
+            id: "development",
             title: "DEVELOPMENT",
             member: [
               {
+                id: "emma",
                 name: "Emma",
                 add: "CTO",
                 image_url:
@@ -69,6 +79,7 @@ export default {
             ],
             children: [
               {
+                id: "frontend",
                 title: "FRONTEND",
                 titleClass: "frontend-title",
                 contentClass: "frontend-content",
@@ -88,6 +99,7 @@ export default {
                 ],
               },
               {
+                id: "backend",
                 title: "BACKEND",
                 titleClass: "backend-title",
                 contentClass: "backend-content",
@@ -109,6 +121,7 @@ export default {
             ],
           },
           {
+            id: "design",
             title: "DESIGN",
             member: [
               {
@@ -118,15 +131,19 @@ export default {
             ],
           },
           {
+            id: "marketing",
             title: "MARKETING",
           },
           {
+            id: "sales",
             title: "SALES",
             children: [
               {
+                id: "sales-a",
                 title: "SALES A TEAM",
               },
               {
+                id: "sales-b",
                 title: "SALES B TEAM",
               },
             ],
@@ -137,7 +154,10 @@ export default {
   },
   methods: {
     clickNode: function (node) {
-      console.log(node);
+      console.log("click-node", node);
+    },
+    handleSelect: function (payload) {
+      console.log("select", payload);
     },
   },
 };

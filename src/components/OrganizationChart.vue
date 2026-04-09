@@ -1,115 +1,124 @@
 <template>
-  <table v-if="orgData.title" class="org-table">
-    <tbody>
-      <tr>
-        <td
-          :colspan="
-            Array.isArray(orgData.children) ? orgData.children.length * 2 : 1
-          "
-          :class="{
-            ['org-parent-level']: isChildren(),
-            ['org-extend']: isChildren() && orgData.extend,
-          }"
-        >
-          <div class="org-node">
-            <div class="org-container" @click="$emit('click-node', orgData)">
-              <div class="org-title" :class="orgData.titleClass || []">
-                {{ orgData.title }}
-              </div>
-              <div
-                class="org-content"
-                v-if="isMember()"
-                :class="orgData.contentClass || []"
-              >
-                <div
-                  class="org-content-item"
-                  v-for="(member, index) in orgData.member"
-                  @click.stop="$emit('click-node', member)"
-                >
-                  <div class="item-box">
-                    <p class="item-title">{{ member.name }}</p>
-                    <p class="item-add">{{ member.add }}</p>
-                  </div>
-                  <div class="avat" v-if="member.image_url">
-                    <img :src="member.image_url" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            class="org-extend-arrow"
-            v-if="isChildren()"
-            @click="setToggleExtend(orgData, !orgData.extend)"
-          ></div>
-        </td>
-      </tr>
-      <tr
-        v-if="isChildren()"
-        :style="{ visibility: orgData.extend ? 'visible' : 'hidden' }"
-      >
-        <td
-          v-for="(children, index) in orgData.children"
-          :key="index"
-          colspan="2"
-          class="org-child-level"
-        >
-          <OrganizationChart
-            :data="children"
-            @click-node="$emit('click-node', $event)"
-          />
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <OrganizationChartNodeView
+    :node="data"
+    :depth="0"
+    :path="rootPath"
+    :expanded-state="expandedState"
+    :node-title-slot="$slots['node-title']"
+    :member-slot="$slots.member"
+    @toggle="toggleNode"
+    @click-node="emitLegacySelect"
+    @select="emitSelect"
+  />
 </template>
 
-<script>
+<script lang="ts">
+import {
+  computed,
+  defineComponent,
+  reactive,
+  watch,
+  type PropType,
+} from "vue";
 import "../assets/style.css";
-export default {
+import OrganizationChartNodeView from "./OrganizationChartNode.vue";
+import type {
+  OrganizationChartMember,
+  OrganizationChartNode,
+  OrganizationChartSelectPayload,
+  OrganizationChartTogglePayload,
+} from "../types";
+import { getChildPath, getNodeKey, getRootPath } from "../utils/tree";
+
+export default defineComponent({
   name: "OrganizationChart",
-  props: ["data"],
-  data() {
+  components: {
+    OrganizationChartNodeView,
+  },
+  props: {
+    data: {
+      type: Object as PropType<OrganizationChartNode>,
+      required: true,
+    },
+    defaultExpandAll: {
+      type: Boolean,
+      default: true,
+    },
+  },
+  emits: {
+    "click-node": (_payload: OrganizationChartNode | OrganizationChartMember) =>
+      true,
+    select: (_payload: OrganizationChartSelectPayload) => true,
+  },
+  setup(props, { emit }) {
+    const expandedState = reactive<Record<string, boolean>>({});
+    const rootPath = computed(() => getRootPath(props.data));
+
+    const syncExpandedState = () => {
+      const nextKeys = new Set<string>();
+
+      const visit = (node: OrganizationChartNode, path: string[]) => {
+        const key = getNodeKey(node, path);
+
+        nextKeys.add(key);
+        if (!(key in expandedState)) {
+          expandedState[key] = props.defaultExpandAll;
+        }
+
+        node.children?.forEach((child, index) => {
+          visit(child, getChildPath(path, child, index));
+        });
+      };
+
+      visit(props.data, getRootPath(props.data));
+
+      Object.keys(expandedState).forEach((key) => {
+        if (!nextKeys.has(key)) {
+          delete expandedState[key];
+        }
+      });
+    };
+
+    watch([() => props.data, () => props.defaultExpandAll], syncExpandedState, {
+      deep: true,
+      immediate: true,
+    });
+
+    const toggleNode = ({
+      node,
+      path,
+      value,
+    }: OrganizationChartTogglePayload) => {
+      const applyToSubtree = (
+        currentNode: OrganizationChartNode,
+        currentPath: string[]
+      ) => {
+        expandedState[getNodeKey(currentNode, currentPath)] = value;
+        currentNode.children?.forEach((child, index) => {
+          applyToSubtree(child, getChildPath(currentPath, child, index));
+        });
+      };
+
+      applyToSubtree(node, path);
+    };
+
+    const emitLegacySelect = (
+      payload: OrganizationChartNode | OrganizationChartMember
+    ) => {
+      emit("click-node", payload);
+    };
+
+    const emitSelect = (payload: OrganizationChartSelectPayload) => {
+      emit("select", payload);
+    };
+
     return {
-      orgData: {},
+      emitLegacySelect,
+      emitSelect,
+      expandedState,
+      rootPath,
+      toggleNode,
     };
   },
-  watch: {
-    data: {
-      handler: function (Props) {
-        const extendKey = function (orgData) {
-          orgData.extend = true;
-          if (Array.isArray(orgData.children)) {
-            orgData.children.forEach((c) => {
-              extendKey(c);
-            });
-          }
-          return orgData;
-        };
-        if (Props) {
-          this.orgData = extendKey(Props);
-        }
-      },
-      immediate: true,
-    },
-  },
-  methods: {
-    setToggleExtend: function (orgData, extend) {
-      orgData.extend = extend;
-      Array.isArray(orgData.children) &&
-        orgData.children.forEach((c) => {
-          this.setToggleExtend(c, extend);
-        });
-      this.$forceUpdate();
-    },
-    isChildren: function () {
-      return (
-        Array.isArray(this.orgData.children) && this.orgData.children.length
-      );
-    },
-    isMember: function () {
-      return Array.isArray(this.orgData.member) && this.orgData.member.length;
-    },
-  },
-};
+});
 </script>
