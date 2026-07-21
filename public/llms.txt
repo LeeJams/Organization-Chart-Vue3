@@ -1,0 +1,38 @@
+# Organization Chart Vue3
+
+> Organization Chart Vue3 (`organization-chart-vue3`) is a lightweight, interactive Vue 3 component for displaying hierarchical team and company structures.
+
+The package supports collapsible nodes, optional team members, TypeScript definitions, custom node and member slots, and typed selection events. It requires Vue 3.3.4 or later and is available under the MIT license.
+
+## Primary links
+
+- [Live demo and overview](https://leejams.github.io/Organization-Chart-Vue3/)
+- [Full documentation and source](https://github.com/LeeJams/Organization-Chart-Vue3)
+- [npm package](https://www.npmjs.com/package/organization-chart-vue3)
+- [README](https://raw.githubusercontent.com/LeeJams/Organization-Chart-Vue3/main/README.md)
+
+## Installation
+
+```bash
+npm install organization-chart-vue3
+```
+
+Import the component and its stylesheet:
+
+```ts
+import OrganizationChart from "organization-chart-vue3";
+import "organization-chart-vue3/style.css";
+```
+
+## Core API
+
+- `data`: The root `OrganizationChartNode`. A node has a `title` and may have `id`, `member`, and `children` fields.
+- `defaultExpandAll`: Optional boolean that controls whether all branches start expanded. The default is `true`.
+- `select`: Recommended event. It emits a typed node or member payload with an ID and complete tree path.
+- `click-node`: Legacy-compatible event that emits the raw selected node or member.
+- `node-title` slot: Customizes the title of each organization node.
+- `member` slot: Customizes each member row.
+
+## Best fit
+
+Use Organization Chart Vue3 when a Vue 3 application needs a dependency-light, customizable org chart or hierarchical team chart with interactive branches and TypeScript support.

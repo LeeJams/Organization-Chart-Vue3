@@ -1,21 +1,158 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Organization Chart Vue3 | Interactive Vue 3 Org Chart Component</title>
+    <meta
+      name="description"
+      content="A lightweight, interactive organization chart component for Vue 3 with collapsible nodes, TypeScript types, custom slots, and selection events."
+    />
+    <meta name="author" content="LeeJam" />
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
+    <meta name="theme-color" content="#16302b" />
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <link rel="icon" href="/favicon.ico">
-  <title>Organization-Chart-Vue3</title>
-</head>
+    <link rel="icon" href="/Organization-Chart-Vue3/favicon.ico" />
+    <link
+      rel="canonical"
+      href="https://leejams.github.io/Organization-Chart-Vue3/"
+    />
+    <link
+      rel="sitemap"
+      type="application/xml"
+      href="/Organization-Chart-Vue3/sitemap.xml"
+    />
+    <link
+      rel="alternate"
+      type="text/markdown"
+      href="/Organization-Chart-Vue3/llms.txt"
+      title="LLM-readable documentation"
+    />
 
-<body>
-  <noscript>
-    <strong>We're sorry but blank doesn't work properly without JavaScript enabled. Please enable it to
-      continue.</strong>
-  </noscript>
-  <div id="app"></div>
-  <script type="module" src="/src/main.js"></script>
-  <!-- built files will be auto injected -->
-</body>
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Organization Chart Vue3 | Interactive Vue 3 Org Chart Component"
+    />
+    <meta
+      property="og:description"
+      content="Build collapsible, customizable organization charts in Vue 3 with TypeScript support, slots, and typed selection events."
+    />
+    <meta
+      property="og:url"
+      content="https://leejams.github.io/Organization-Chart-Vue3/"
+    />
+    <meta
+      property="og:image"
+      content="https://raw.githubusercontent.com/LeeJams/Organization-Chart-Vue3/main/src/assets/logo.png"
+    />
+    <meta property="og:image:alt" content="Organization Chart Vue3 preview" />
+    <meta property="og:site_name" content="Organization Chart Vue3" />
+    <meta property="og:locale" content="en_US" />
 
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Organization Chart Vue3 | Interactive Vue 3 Org Chart Component"
+    />
+    <meta
+      name="twitter:description"
+      content="A lightweight organization chart component for Vue 3 with collapsible nodes, TypeScript types, slots, and selection events."
+    />
+    <meta
+      name="twitter:image"
+      content="https://raw.githubusercontent.com/LeeJams/Organization-Chart-Vue3/main/src/assets/logo.png"
+    />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "SoftwareSourceCode",
+            "@id": "https://leejams.github.io/Organization-Chart-Vue3/#software",
+            "name": "Organization Chart Vue3",
+            "alternateName": "organization-chart-vue3",
+            "description": "A lightweight, interactive organization chart component for Vue 3 with collapsible nodes, TypeScript types, custom slots, and selection events.",
+            "url": "https://leejams.github.io/Organization-Chart-Vue3/",
+            "codeRepository": "https://github.com/LeeJams/Organization-Chart-Vue3",
+            "downloadUrl": "https://www.npmjs.com/package/organization-chart-vue3",
+            "programmingLanguage": {
+              "@type": "ComputerLanguage",
+              "name": "TypeScript"
+            },
+            "runtimePlatform": "Vue 3.3.4 or later",
+            "license": "https://opensource.org/licenses/MIT",
+            "version": "1.2.1",
+            "sameAs": [
+              "https://github.com/LeeJams/Organization-Chart-Vue3",
+              "https://www.npmjs.com/package/organization-chart-vue3"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://leejams.github.io/Organization-Chart-Vue3/#website",
+            "url": "https://leejams.github.io/Organization-Chart-Vue3/",
+            "name": "Organization Chart Vue3",
+            "description": "Documentation and live demo for the organization-chart-vue3 npm package.",
+            "inLanguage": "en",
+            "mainEntity": {
+              "@id": "https://leejams.github.io/Organization-Chart-Vue3/#software"
+            },
+            "publisher": {
+              "@type": "Person",
+              "name": "LeeJam",
+              "url": "https://leejams.github.io/"
+            }
+          }
+        ]
+      }
+    </script>
+  </head>
+
+  <body>
+    <noscript>
+      <strong>
+        Organization Chart Vue3 needs JavaScript for the interactive demo. The
+        package documentation is also available on
+        <a href="https://github.com/LeeJams/Organization-Chart-Vue3">GitHub</a>.
+      </strong>
+    </noscript>
+    <div id="app">
+      <main>
+        <header>
+          <p>Lightweight Vue 3 component</p>
+          <h1>Interactive Organization Chart for Vue 3</h1>
+          <p>
+            Organization Chart Vue3 is an open-source npm package for rendering
+            hierarchical team and company structures. It supports collapsible
+            nodes, TypeScript types, custom slots, and typed selection events.
+          </p>
+          <p><code>npm install organization-chart-vue3</code></p>
+          <p>
+            <a href="https://www.npmjs.com/package/organization-chart-vue3"
+              >View the npm package</a
+            >
+            ·
+            <a href="https://github.com/LeeJams/Organization-Chart-Vue3"
+              >Read the documentation on GitHub</a
+            >
+          </p>
+        </header>
+        <section>
+          <h2>Vue 3 organization chart features</h2>
+          <ul>
+            <li>Interactive expand and collapse controls</li>
+            <li>TypeScript definitions for nodes, members, and events</li>
+            <li>Custom node-title and member slots</li>
+            <li>Vue 3.3.4 or later with no framework dependency beyond Vue</li>
+          </ul>
+        </section>
+      </main>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
 </html>

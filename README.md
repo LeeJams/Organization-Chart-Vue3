@@ -2,7 +2,17 @@
 
 [![NPM](https://img.shields.io/npm/v/organization-chart-vue3.svg)](https://www.npmjs.com/package/organization-chart-vue3)
 
-> A Vue3 component to display organization chart
+> A lightweight, interactive organization chart component for Vue 3 with collapsible nodes, TypeScript types, custom slots, and selection events.
+
+Organization Chart Vue3 renders hierarchical team and company structures with no framework dependency beyond Vue. It supports expandable branches, custom node and member templates, stable tree paths, and typed event payloads.
+
+## Features
+
+- Interactive expand and collapse controls
+- TypeScript definitions for nodes, members, and events
+- Custom `node-title` and `member` slots
+- Typed `select` events with stable IDs and tree paths
+- Vue `3.3.4` or later
 
 ## Live Demo
 
