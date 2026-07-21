@@ -132,10 +132,11 @@
 }
 
 .org-child-level:first-child.org-child-level:last-child::after {
-  left: auto;
-  border-radius: 0;
-  border-color: transparent #ccc transparent transparent;
-  transform: translate3d(1px, 0, 0);
+  left: 50%;
+  right: auto;
+  border: 0;
+  border-left: 2px solid #ccc;
+  transform: translate3d(-1px, 0, 0);
 }
 
 .org-extend .org-extend-arrow:before {
