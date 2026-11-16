@@ -1,6 +1,6 @@
 {
   "name": "organization-chart-vue3",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "A lightweight, interactive organization chart component for Vue 3 with collapsible nodes, TypeScript types, custom slots, and selection events",
   "author": "LeeJams [woals214@gmail.com]",
   "type": "module",
@@ -68,5 +68,11 @@
     "vitest": "^4.1.4",
     "vue": "^3.5.32",
     "vue-tsc": "^3.2.6"
+  },
+  "overrides": {
+    "js-beautify": {
+      "glob": "^14.0.6",
+      "minimatch": "^11.0.8"
+    }
   }
 }
