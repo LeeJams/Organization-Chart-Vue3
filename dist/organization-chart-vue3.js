@@ -1,5 +1,5 @@
 import { Fragment as e, computed as t, createBlock as n, createCommentVNode as r, createElementBlock as i, createElementVNode as a, createTextVNode as o, createVNode as s, defineComponent as c, normalizeClass as l, normalizeStyle as u, openBlock as d, reactive as f, renderList as p, resolveComponent as m, toDisplayString as h, watch as g, withModifiers as _ } from "vue";
-//#region src/components/RenderSlotContent.ts
+// src/components/RenderSlotContent.ts
 var v = c({
 	name: "RenderSlotContent",
 	props: { render: {
@@ -10,8 +10,7 @@ var v = c({
 		return () => e.render();
 	}
 });
-//#endregion
-//#region src/utils/tree.ts
+// src/utils/tree.ts
 function y(e) {
 	return [e.id ?? "root"];
 }
@@ -27,8 +26,7 @@ function S(e, t, n) {
 function C(e, t, n) {
 	return [...e, t.id ?? `member-${n}`];
 }
-//#endregion
-//#region src/components/OrganizationChartNode.vue?vue&type=script&lang.ts
+// src/components/OrganizationChartNode.vue?vue&type=script&lang.ts
 var w = c({
 	name: "OrganizationChartNodeView",
 	components: { RenderSlotContent: v },
@@ -178,8 +176,7 @@ function I(t, c, f, g, v, y) {
 		"member-slot"
 	])]))), 128))], 4)) : r("", !0)])])) : r("", !0);
 }
-//#endregion
-//#region src/components/OrganizationChart.vue?vue&type=script&lang.ts
+// src/components/OrganizationChart.vue?vue&type=script&lang.ts
 var L = c({
 	name: "OrganizationChart",
 	components: { OrganizationChartNodeView: /* @__PURE__ */ T(w, [["render", I]]) },
@@ -232,8 +229,7 @@ var L = c({
 		};
 	}
 });
-//#endregion
-//#region src/components/OrganizationChart.vue
+// src/components/OrganizationChart.vue
 function R(e, t, r, i, a, o) {
 	let s = m("OrganizationChartNodeView");
 	return d(), n(s, {
@@ -257,8 +253,6 @@ function R(e, t, r, i, a, o) {
 		"onSelect"
 	]);
 }
-//#endregion
-//#region src/index.ts
+// src/index.ts
 var z = /* @__PURE__ */ T(L, [["render", R]]);
-//#endregion
 export { z as default };
